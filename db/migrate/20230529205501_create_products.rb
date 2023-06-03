@@ -4,6 +4,7 @@ class CreateProducts < ActiveRecord::Migration[7.0]
       t.integer :name
       t.integer :code
       t.references :productsubgroup, null: false, foreign_key: true
+      t.references :temperaturerange, null: false, foreign_key: true
 
       t.timestamps
     end
