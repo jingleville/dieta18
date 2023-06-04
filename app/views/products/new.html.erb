@@ -1,16 +1,47 @@
-<div class="row no-gutters wow slideInUp" data-wow-duration="1s">
-  <div class="col-md-12 home-form">
-    <%= form_tag(product_search_path, method: "get", class: "form-inline", remote: true) do %>
-      <%= select_tag "group", options_from_collection_for_select(ProductGroup.all, "id", "name"), prompt: "Group", class: "custom-select mb-0 mr-sm-0 mb-sm-0" %>
-      <%= select_tag "subgroup", options_from_collection_for_select(ProductSubgroup.all, "id", "name"), prompt: "Subgroup", class: "custom-select mb-0 mr-sm-0 mb-sm-0" %>
-      <%= select_tag "course", options_from_collection_for_select(Product.all, "id", "name"), prompt: "Product", class: "custom-select mb-0 mr-sm-0 mb-sm-0" %>
-      <%= submit_tag("Search", class: "btn btn-primary") %>
-   <% end %>
-  </div>
-</div>
+<container>
+  <h1> Create new product </h1>
 
 
 
+  <%= form_with model: @product do |form| %>
+    <div id="group">
+      <%= select_tag "group", 
+          options_from_collection_for_select(ProductGroup.all, "id", "name"), 
+          prompt: "Group", 
+          class: "custom-select mb-0 mr-sm-0 mb-sm-0" %>
+      <%= link_to 'New group', 
+           new_group_path, 
+          class: 'btn btn-primary btn-sm' %>
+    </div>
+
+    <div id="subgroup" style="display: none;">
+      <%= select_tag "subgroup", prompt: "Subgroup", class: "custom-select mb-0 mr-sm-0 mb-sm-0 hidden" %>
+      <%= link_to 'New subgroup', "/", class: 'btn btn-primary', id: 'create_subgroup' %>
+    </div>
+
+    <div id="temperature">
+      <%= select_tag "group", 
+          options_from_collection_for_select(TemperatureRange.all, "id", "name"), 
+          prompt: "Thermal Range", 
+          class: "custom-select mb-0 mr-sm-0 mb-sm-0" %>
+      <%= link_to 'New thermal range', 
+          new_thermal_range_path, 
+          class: 'btn btn-primary btn-sm' %>
+    </div>
+
+    <div id="product" style="display: none;">
+      <%= form.label :name %><br>
+      <%= form.text_field :name %>
+
+      <%= form.label :code %><br>
+      <%= form.text_field :code %>
+    </div>
+
+    <div id="create" style="display: none;">
+      <%= form.submit %>
+    </div>
+  <% end %>
+</container>
 
 
 
