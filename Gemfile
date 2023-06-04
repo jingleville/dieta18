@@ -34,6 +34,8 @@ gem "annotate"
 
 gem 'jquery-rails'
 
+gem 'responders'
+
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
 

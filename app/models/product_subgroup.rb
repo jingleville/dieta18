@@ -17,6 +17,6 @@
 #  product_group_id  (product_group_id => product_groups.id)
 #
 class ProductSubgroup < ApplicationRecord
-  belongs_to :productgroup
+  belongs_to :product_group
   has_many :products
 end

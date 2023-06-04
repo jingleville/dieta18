@@ -1,0 +1,36 @@
+<div class="row no-gutters wow slideInUp" data-wow-duration="1s">
+  <div class="col-md-12 home-form">
+    <%= form_tag(product_search_path, method: "get", class: "form-inline", remote: true) do %>
+      <%= select_tag "group", options_from_collection_for_select(ProductGroup.all, "id", "name"), prompt: "Group", class: "custom-select mb-0 mr-sm-0 mb-sm-0" %>
+      <%= select_tag "subgroup", options_from_collection_for_select(ProductSubgroup.all, "id", "name"), prompt: "Subgroup", class: "custom-select mb-0 mr-sm-0 mb-sm-0" %>
+      <%= select_tag "course", options_from_collection_for_select(Product.all, "id", "name"), prompt: "Product", class: "custom-select mb-0 mr-sm-0 mb-sm-0" %>
+      <%= submit_tag("Search", class: "btn btn-primary") %>
+   <% end %>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
